@@ -1,4 +1,5 @@
-# GREET | API DOCUMENTATION (DEMO/TEMPLATE)
+# GREET | API DOCUMENTATION TEMPLATE
+![Demo](demo.png)
 
 Api documentation made by GREET team, fully responsive, easy to edit.
 
