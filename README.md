@@ -27,3 +27,4 @@ We use [Heroku](https://heroku.com/) for versioning and deploy.
 ## Acknowledgments
 
 * [HIGHLIGHT.JS](https://highlightjs.org)
+* Inspired by [SLATE](https://github.com/lord/slate)
