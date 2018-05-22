@@ -1,9 +1,9 @@
-# GREET | API DOCUMENTATION TEMPLATE
+# GREET | API DOCS TEMPLATE
 ![Demo](demo.png)
 
 Api documentation made by GREET team, fully responsive, easy to edit.
 
-You can find full product on [greet.chat](https://www.greet.chat/api_documentation) or [GitHub](https://liborzahradka.github.io/greet_api_template/).
+You can find full product on [greet.chat](https://www.greet.chat/api_documentation) or [GitHub](https://liborzahradka.github.io/GreetAPI/).
 
 ## Built With
 
