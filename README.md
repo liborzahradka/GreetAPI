@@ -1,10 +1,7 @@
 # GREET | API DOCUMENTATION (DEMO/TEMPLATE)
 
 Api documentation made by GREET team, fully responsive, easy to edit.
-
-## Getting Started
-
-You can find full product on [greet.chat](https://www.greet.chat/api_documentation)
+You can find full product on [greet.chat](https://www.greet.chat/api_documentation) or [GitHub](https://liborzahradka.github.io/greet_api/).
 
 ## Built With
 
@@ -22,8 +19,8 @@ We use [Heroku](https://heroku.com/) for versioning and deploy.
 
 ## Authors
 
-* **Libor Zahradka** - *Initial work* - [GitHub](https://github.com/liborzahradka)
-* **Cameron Burley** - *Initial work* - [GitHub](https://github.com/)
+* **Libor Zahradka** - [GitHub](https://github.com/liborzahradka) | [LinkedIn](https://www.linkedin.com/in/libor-zahradka-20818186/)
+* **Cameron Burley** - [GitHub](https://github.com/) | [LinkedIn](https://www.linkedin.com/in/cam-burley-8b9b587/)
 
 ## Acknowledgments
 
