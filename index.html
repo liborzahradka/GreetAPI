@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+
+		<!-- Website Title & Description for Search Engine purposes -->
+    <meta charset="utf-8">
+		<title>GREET | API DOCUMENTATION</title>
+    <meta name="description" content="Build a Wikipedia Viewer">
+    <meta name="author" content="Libor Zahradka">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="images/logo.png" />
+
+		<!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="css/extras/atom-one-dark.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+
+    <!-- JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+	</head>
+	<body>
+
+    <div class="wrapper">
+      <nav class="navigation">
+        <i class="fas fa-bars mobile-menu"></i>
+        <div class="logo">
+          <img src="images/logo-w.png" alt="Logo">
+        </div>
+        <!-- <div class="search">
+          <input type="search" placeholder="Search">
+        </div> -->
+        <ul class="menu">
+          <li class="active"><a href="#introduction">Introduction</a></li>
+          <li><a href="#get-started">Get Started</a></li>
+          <li><a href="#page">Page</a></li>
+          <li><a href="#post">Post</a></li>
+          <li><a href="#responses">Responses</a></li>
+        </ul>
+        <div class="info-message">
+          <a href="#">Sign Up for a API Token</a>
+        </div>
+      </nav>
+
+      <section class="content">
+        <div class="method-wrapper">
+          <ul class="method-menu">
+            <li data-lang="bash" class="active">curl</li>
+            <li data-lang="ruby">Ruby</li>
+            <li data-lang="python">Python</li>
+            <li data-lang="php">PHP</li>
+            <li data-lang="node">Node</li>
+          </ul>
+
+          <div class="method" id="introduction">
+            <div class="information">
+              <h1>Informations</h1>
+              <div class="text">
+                <p>Welcome to the Greet API! You can use our API to access Greet API endpoints, which can get information on data to your page nad individual posts in our database.</p>
+                <p>We have language bindings in curl, Ruby, PHP and Node! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+                <p>This API documentation page was created by Greet to customize and integrate with your own platform.</p>
+              </div>
+              <p class="info-text">Token will expire in 30 days.</p>
+            </div>
+          </div>
+          <div class="method" id="get-started">
+            <div class="information">
+              <h1>Get Started</h1>
+              <div class="text">
+                <p></p>
+              </div>
+            </div>
+          </div>
+          <div class="method" id="page">
+            <div class="information">
+              <h1>Page</h1>
+              <div class="text">
+                <h4>GET Page Data</h4>
+                <p>Endpoint to retrieve all page related data.</p>
+
+                <h4>HTTP Request</h4>
+                <quote>GET http://greet.chat/api/v1/page/:page_id</quote>
+
+                <h4>Query Parameters</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <th id="head1">Parameter</th>
+                      <th id="head2">Default</th>
+                      <th id="head3">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>page_id</td>
+                      <td>false</td>
+                      <td>Your page id is required to get data for your page.</td>
+                    </tr>
+                    <tr>
+                      <td>period</td>
+                      <td>true</td>
+                      <td>Period is optional and set by a default to 1 week since now. Can be set to <b>month, two_weeks, week, today</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="code">
+              <p id="message">To request page data, use this code:</p>
+              <pre class="request">
+                <code class="bash">
+                  curl -X GET \
+                    'https://greet.chat/api/v1/page/xxxxxxxxxx?period=week' \
+                    -H 'Authorization: Bearer xxxxxxxxxx' \
+                    -H 'Cache-Control: no-cache' \
+                    -H 'User: xxxxxxxxxx'
+                </code>
+                <code class="ruby">
+                  require 'uri'
+                  require 'net/http'
+
+                  url = URI("https://greet.chat/api/v1/page/xxxxxxxxxx?period=week")
+
+                  http = Net::HTTP.new(url.host, url.port)
+
+                  request = Net::HTTP::Get.new(url)
+                  request["User"] = 'xxxxxxxxxx'
+                  request["Authorization"] = 'Bearer xxxxxxxxxx'
+                  request["Cache-Control"] = 'no-cache'
+
+                  response = http.request(request)
+                  puts response.read_body
+                </code>
+                <code class="python">
+                  import requests
+
+                  url = "https://greet.chat/api/v1/page/xxxxxxxxxx"
+
+                  querystring = {"period":"week"}
+
+                  headers = {
+                      'User': "xxxxxxxxxx",
+                      'Authorization': "Bearer xxxxxxxxxx",
+                      'Cache-Control': "no-cache"
+                      }
+
+                  response = requests.request("GET", url, headers=headers, params=querystring)
+
+                  print(response.text)
+                </code>
+                <code class="php">
+                  $request = new HttpRequest();
+                  $request->setUrl('https://greet.chat/api/v1/page/xxxxxxxxxx');
+                  $request->setMethod(HTTP_METH_GET);
+
+                  $request->setQueryData(array(
+                    'period' => 'week'
+                  ));
+
+                  $request->setHeaders(array(
+                    'Cache-Control' => 'no-cache',
+                    'Authorization' => 'Bearer xxxxxxxxxx',
+                    'User' => 'xxxxxxxxxx'
+                  ));
+
+                  try {
+                    $response = $request->send();
+
+                    echo $response->getBody();
+                  } catch (HttpException $ex) {
+                    echo $ex;
+                  }
+                </code>
+                <code class="node">
+                  var request = require("request");
+
+                  var options = { method: 'GET',
+                    url: 'https://greet.chat/api/v1/page/xxxxxxxxxx',
+                    qs: { period: 'week' },
+                    headers:
+                       'Cache-Control': 'no-cache',
+                       Authorization: 'Bearer xxxxxxxxxx',
+                       User: 'xxxxxxxxxx' } };
+
+                  request(options, function (error, response, body) {
+                    if (error) throw new Error(error);
+
+                    console.log(body);
+                  });
+                </code>
+              </pre>
+              <p id="message">The above command returns JSON structured like this:</p>
+              <pre class="respose">
+                <code class="json">
+                  {
+                    "total_questions": {
+                        "total": 58,
+                        "per_post": 3.1,
+                        "title": "Total Customer Questions",
+                        "desc": "Customer Questions"
+                    },
+                    "team_questions": {
+                        "total": 0,
+                        "per_post": 0,
+                        "title": "Customer Questions Answered",
+                        "desc": "Team Responses"
+                    },
+                    "open_questions": {
+                        "total": 58,
+                        "per_post": 3.1,
+                        "title": "Open Customer Questions",
+                        "desc": "Customer Care Needed"
+                    },
+                    "mentions": {
+                        "total": 21,
+                        "per_post": 1.1,
+                        "title": "Total Mentions",
+                        "desc": "Public Callouts"
+                    },
+                    "tags": {
+                        "total": 11,
+                        "per_post": 0.6,
+                        "title": "Friend Tags",
+                        "desc": "Friend Tags"
+                    },
+                    "long_message": {
+                        "total": 0,
+                        "per_post": 0,
+                        "title": "Long Messages",
+                        "desc": "240 Characters+ Messages"
+                    },
+                    "love": {
+                        "total": 28,
+                        "per_post": 1.5,
+                        "title": "Brand Love",
+                        "desc": "Public Embrace"
+                    },
+                    "disappointment": {
+                        "total": 12,
+                        "per_post": 0.6,
+                        "title": "Toxic Messages",
+                        "desc": "Product/Service Disappointment"
+                    },
+                    "domain_block": {
+                        "total": 0,
+                        "per_post": 0,
+                        "title": "Spam",
+                        "desc": "3rd Party Links"
+                    }
+                  }
+                </code>
+              </pre>
+            </div>
+          </div>
+          <div class="method" id="post">
+            <div class="information">
+              <h1>Post</h1>
+              <div class="text">
+                <h4>GET Post Data</h4>
+                <p>Endpoint to get data for specific posts.</p>
+
+                <h4>HTTP Request</h4>
+                <quote>GET http://greet.chat/api/v1/post/:page_id</quote>
+
+                <h4>Query Parameters</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <th id="head1">Parameter</th>
+                      <th id="head2">Default</th>
+                      <th id="head3">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>page_id</td>
+                      <td>false</td>
+                      <td>Your page id is required to get data for your page.</td>
+                    </tr>
+                    <tr>
+                      <td>period</td>
+                      <td>true</td>
+                      <td>Period is optional and set by a default to 1 week since now. Can be set to <b>month, two_weeks, week, today</b></td>
+                    </tr>
+                    <tr>
+                      <td>post_ids</td>
+                      <td>true</td>
+                      <td>Optional, by default are posts set based on selected period. Can be set as <b>array</b>.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="code">
+              <p id="message">To request post data, use this code:</p>
+              <pre class="request">
+                <code class="bash">
+                  curl -X GET \
+                    'http://greet.chat/api/v1/post/xxxxxxxxxx?period=week' \
+                    -H 'Authorization: Bearer xxxxxxxxxx' \
+                    -H 'Cache-Control: no-cache' \
+                    -H 'User: xxxxxxxxxx'
+                </code>
+                <code class="ruby">
+                  require 'uri'
+                  require 'net/http'
+
+                  url = URI("http://greet.chat/api/v1/post/xxxxxxxxxx?period=week")
+
+                  http = Net::HTTP.new(url.host, url.port)
+
+                  request = Net::HTTP::Get.new(url)
+                  request["User"] = 'xxxxxxxxxx'
+                  request["Authorization"] = 'Bearer xxxxxxxxxx'
+                  request["Cache-Control"] = 'no-cache'
+
+                  response = http.request(request)
+                  puts response.read_body
+                </code>
+                <code class="python">
+                  import requests
+
+                  url = "http://greet.chat/api/v1/post/xxxxxxxxxx"
+
+                  querystring = {"period":"week"}
+
+                  headers = {
+                      'User': "xxxxxxxxxx",
+                      'Authorization': "Bearer xxxxxxxxxx",
+                      'Cache-Control': "no-cache"
+                      }
+
+                  response = requests.request("GET", url, headers=headers, params=querystring)
+
+                  print(response.text)
+                </code>
+                <code class="php">
+                  $request = new HttpRequest();
+                  $request->setUrl('http://greet.chat/api/v1/post/xxxxxxxxxx');
+                  $request->setMethod(HTTP_METH_GET);
+
+                  $request->setQueryData(array(
+                    'period' => 'week'
+                  ));
+
+                  $request->setHeaders(array(
+                    'Cache-Control' => 'no-cache',
+                    'Authorization' => 'Bearer xxxxxxxxxx',
+                    'User' => 'xxxxxxxxxx'
+                  ));
+
+                  try {
+                    $response = $request->send();
+
+                    echo $response->getBody();
+                  } catch (HttpException $ex) {
+                    echo $ex;
+                  }
+                </code>
+                <code class="node">
+                  var request = require("request");
+
+                  var options = { method: 'GET',
+                    url: 'http://greet.chat/api/v1/post/xxxxxxxxxx',
+                    qs: { period: 'week' },
+                    headers:
+                     { 'Cache-Control': 'no-cache',
+                       Authorization: 'Bearer xxxxxxxxxx',
+                       User: 'xxxxxxxxxx' } };
+
+                  request(options, function (error, response, body) {
+                    if (error) throw new Error(error);
+
+                    console.log(body);
+                  });
+                </code>
+              </pre>
+              <p id="message">The above command returns JSON structured like this:</p>
+              <pre class="respose">
+                <code class="json">
+                  [
+                    {
+                      "total_questions": {
+                          "total": 0,
+                          "title": "Total Customer Questions",
+                          "desc": "Customer Questions"
+                      },
+                      "team_questions": {
+                          "total": 0,
+                          "title": "Customer Questions Answered",
+                          "desc": "Team Responses"
+                      },
+                      "open_questions": {
+                          "total": 0,
+                          "title": "Open Customer Questions",
+                          "desc": "Customer Care Needed"
+                      },
+                      "mentions": {
+                          "total": 0,
+                          "title": "Total Mentions",
+                          "desc": "Public Callouts"
+                      },
+                      "tags": {
+                          "total": 0,
+                          "title": "Friend Tags",
+                          "desc": "Friend Tags"
+                      },
+                      "long_message": {
+                          "total": 0,
+                          "title": "Long Messages",
+                          "desc": "240 Characters+ Messages"
+                      },
+                      "love": {
+                          "total": 0,
+                          "title": "Brand Love",
+                          "desc": "Public Embrace"
+                      },
+                      "disappointment": {
+                          "total": 0,
+                          "title": "Toxic Messages",
+                          "desc": "Product/Service Disappointment"
+                      },
+                      "domain_block": {
+                          "total": 0,
+                          "title": "Spam",
+                          "desc": "3rd Party Links"
+                      }
+                    }, ...
+                  ]
+                </code>
+              </pre>
+            </div>
+          </div>
+          <div class="method" id="responses">
+            <div class="information">
+              <h1>Responses</h1>
+              <div class="text">
+                <h4>Responses:</h4>
+                <p>Every response is returned with error code and message as json.</p>
+                <quote>{"message": "Bad Request!"}</quote> or <quote>{"message": "Success!"}</quote>
+
+                <h4>Successful request:</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <th id="head1">Error Code</th>
+                      <th>Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>200</td>
+                      <td>Success -- Request was successful.</td>
+                    </tr>
+                    <tr>
+                      <td>204</td>
+                      <td>No Content -- Request was successful but no data found.</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <h4>Wrong request:</h4>
+                <table>
+                  <thead>
+                    <tr>
+                      <th id="head1">Error Code</th>
+                      <th>Meaning</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>400</td>
+                      <td>Bad Request -- Your request is wrong.</td>
+                    </tr>
+                    <tr>
+                      <td>401</td>
+                      <td>Unauthorized -- Your API key is wrong.</td>
+                    </tr>
+                    <tr>
+                      <td>403</td>
+                      <td>Forbidden -- The requested is hidden for administrators only.</td>
+                    </tr>
+                    <tr>
+                      <td>404</td>
+                      <td>Not Found -- The request could not be found.</td>
+                    </tr>
+                    <tr>
+                      <td>406</td>
+                      <td>Not Acceptable -- You requested a format that isn't json.</td>
+                    </tr>
+                    <tr>
+                      <td>429</td>
+                      <td>Too Many Requests -- Slow down!</td>
+                    </tr>
+                    <tr>
+                      <td>500</td>
+                      <td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+                    </tr>
+                    <tr>
+                      <td>503</td>
+                      <td>Service Unavailable -- We're temporarily offline for maintenance. Please try again later.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script type="text/javascript" src="js/extras/highlight.pack.js"></script>
+
+	</body>
+</html>
