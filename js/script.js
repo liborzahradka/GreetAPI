@@ -2,7 +2,8 @@ $(document).ready(function () {
   // LOAD SYNTAX HIGHLIGHT
   hljs.initHighlighting();
 
-  // REMOVE EXTRA TABS FOR CODE
+
+
   $("pre code").each(function(){
     var html = $(this).html();
     var pattern = html.match(/\s*\n[\t\s]*/);
@@ -59,9 +60,12 @@ $(document).ready(function () {
 
      if (last_id !== id) {
          last_id = id;
-         menu_items
-           .parent().removeClass("active")
-           .end().filter("[href=\\#"+id+"]").parent().addClass("active");
+         menu_items.parent()
+                   .removeClass("active")
+                   .end()
+                   .filter("[href=\\#"+id+"]")
+                   .parent()
+                   .addClass("active");
      }
   });
 });

@@ -9,7 +9,7 @@ You can find full product on [greet.chat](https://www.greet.chat/api_documentati
 
 * HTML
 * CSS
-* JS (jQuery)
+* JS (jQuery/Vanilla)
 
 ## Contributing
 
@@ -27,4 +27,3 @@ We use [Heroku](https://heroku.com/) for versioning and deploy.
 ## Acknowledgments
 
 * [HIGHLIGHT.JS](https://highlightjs.org)
-* Inspired by [SLATE](https://github.com/lord/slate)
