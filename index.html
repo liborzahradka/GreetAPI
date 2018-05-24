@@ -25,7 +25,7 @@
 
     <!-- JS -->
     <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
-    <!-- <script type="text/javascript" src="js/script.js"></script> -->
+    <!-- <script type="text/javascript" src="js/jquery_script.js"></script> -->
     <script type="text/javascript" src="js/vanilla_script.js"></script>
 
 	</head>
@@ -89,7 +89,7 @@
                 <p>Endpoint to retrieve all page related data.</p>
 
                 <h4>HTTP Request</h4>
-                <quote>GET http://greet.chat/api/v1/page/:page_id</quote>
+                <quote>GET https://greet.chat/api/v1/page/:page_id</quote>
 
                 <h4>Query Parameters</h4>
                 <table>
@@ -270,7 +270,7 @@
                 <p>Endpoint to get data for specific posts.</p>
 
                 <h4>HTTP Request</h4>
-                <quote>GET http://greet.chat/api/v1/post/:page_id</quote>
+                <quote>GET https://greet.chat/api/v1/post/:page_id</quote>
 
                 <h4>Query Parameters</h4>
                 <table>
@@ -306,7 +306,7 @@
               <pre class="request">
                 <code class="bash">
                   curl -X GET \
-                    'http://greet.chat/api/v1/post/xxxxxxxxxx?period=week' \
+                    'https://greet.chat/api/v1/post/xxxxxxxxxx?period=week' \
                     -H 'Authorization: Bearer xxxxxxxxxx' \
                     -H 'Cache-Control: no-cache' \
                     -H 'User: xxxxxxxxxx'
@@ -315,7 +315,7 @@
                   require 'uri'
                   require 'net/http'
 
-                  url = URI("http://greet.chat/api/v1/post/xxxxxxxxxx?period=week")
+                  url = URI("https://greet.chat/api/v1/post/xxxxxxxxxx?period=week")
 
                   http = Net::HTTP.new(url.host, url.port)
 
@@ -330,7 +330,7 @@
                 <code class="python">
                   import requests
 
-                  url = "http://greet.chat/api/v1/post/xxxxxxxxxx"
+                  url = "https://greet.chat/api/v1/post/xxxxxxxxxx"
 
                   querystring = {"period":"week"}
 
@@ -346,7 +346,7 @@
                 </code>
                 <code class="php">
                   $request = new HttpRequest();
-                  $request->setUrl('http://greet.chat/api/v1/post/xxxxxxxxxx');
+                  $request->setUrl('https://greet.chat/api/v1/post/xxxxxxxxxx');
                   $request->setMethod(HTTP_METH_GET);
 
                   $request->setQueryData(array(
@@ -371,7 +371,7 @@
                   var request = require("request");
 
                   var options = { method: 'GET',
-                    url: 'http://greet.chat/api/v1/post/xxxxxxxxxx',
+                    url: 'https://greet.chat/api/v1/post/xxxxxxxxxx',
                     qs: { period: 'week' },
                     headers:
                      { 'Cache-Control': 'no-cache',

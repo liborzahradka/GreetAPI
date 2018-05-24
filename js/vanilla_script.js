@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 });
 
-// FUNCTIONS
+// EFFECT FUNCTIONS
 function show(element) {
   var el = document.querySelectorAll(element);
   for (var i = 0; i < el.length; i ++) {
