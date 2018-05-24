@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   // GLOBAL VARS
   var code_tags = document.getElementsByTagName('code'),
       method_menu = document.querySelectorAll('.method-menu > li'),
-      i = 0;
+      i;
 
   // LOAD SYNTAX HIGHLIGHT
   hljs.initHighlighting();
